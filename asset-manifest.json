@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Memoria/static/css/main.2e289375.css",
-    "main.js": "/Memoria/static/js/main.81fabe8d.js",
+    "main.js": "/Memoria/static/js/main.aed68a38.js",
     "service-worker.js": "/Memoria/service-worker.js",
     "index.html": "/Memoria/index.html",
     "main.2e289375.css.map": "/Memoria/static/css/main.2e289375.css.map",
-    "main.81fabe8d.js.map": "/Memoria/static/js/main.81fabe8d.js.map"
+    "main.aed68a38.js.map": "/Memoria/static/js/main.aed68a38.js.map"
   },
   "entrypoints": [
     "static/css/main.2e289375.css",
-    "static/js/main.81fabe8d.js"
+    "static/js/main.aed68a38.js"
   ]
 }
