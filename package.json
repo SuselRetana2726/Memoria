@@ -2,7 +2,7 @@
   "name": "memoria",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://SuselRetana2726.github.io/Memoria",
+  "homepage": "https://suselretana2726.github.io/Memoria/",
   "dependencies": {
     "gh-pages": "^6.1.1",
     "react": "^18.3.1",
