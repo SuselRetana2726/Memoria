@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import Board from './components/Board/Board';
 import swal from 'sweetalert'
 const cardList = [
-  'cards/t1.svg',
-  'cards/t2.svg',
-  'cards/t3.svg',
-  'cards/t4.svg',
-  'cards/t5.svg',
-  'cards/t6.svg'
+  `${process.env.PUBLIC_URL}/cards/T1.svg`,
+  `${process.env.PUBLIC_URL}/cards/T2.svg`,
+  `${process.env.PUBLIC_URL}/cards/T3.svg`,
+  `${process.env.PUBLIC_URL}/cards/T4.svg`,
+  `${process.env.PUBLIC_URL}/cards/T5.svg`,
+  `${process.env.PUBLIC_URL}/cards/T6.svg`,
 ];
 
 const App = () => {
@@ -131,7 +131,7 @@ const App = () => {
     <div className="app-container">
       <div className="header-container">
         <div className="title-container mt-3">
-          <img src={'otros/titulo.svg'} alt="Game Title" className="title-svg" />
+          <img src={`${process.env.PUBLIC_URL}/otros/titulo.svg`} alt="Game Title" className="title-svg" />
         </div>
         <div className="timer-container">
           <h1 className="timer">Tiempo Restante: {timeLeft} segundos</h1>

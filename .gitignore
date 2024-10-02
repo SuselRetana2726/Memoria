@@ -1,0 +1,4 @@
+# Esto es solo un ejemplo, asegúrate de que no esté bloqueando tus imágenes
+/target
+/.env
+/node_modules
