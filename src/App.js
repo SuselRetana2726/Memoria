@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import Board from './components/Board/Board';
 import swal from 'sweetalert'
 const cardList = [
-  '/cards/t1.svg',
-  '/cards/t2.svg',
-  '/cards/t3.svg',
-  '/cards/t4.svg',
-  '/cards/t5.svg',
-  '/cards/t6.svg'
+  'cards/t1.svg',
+  'cards/t2.svg',
+  'cards/t3.svg',
+  'cards/t4.svg',
+  'cards/t5.svg',
+  'cards/t6.svg'
 ];
 
 const App = () => {
