@@ -15,7 +15,7 @@ const App = () => {
   const [shuffledCards, setshuffledCards] = useState([]);
   const [selectedCards, setselectedCards] = useState(null);
   const [animating, setAnimating] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(20); 
+  const [timeLeft, setTimeLeft] = useState(25); 
   const [gameOver, setGameOver] = useState(false); 
   const [timerRunning, setTimerRunning] = useState(false);
 
@@ -28,7 +28,7 @@ const App = () => {
   useEffect( () => {
     const allFlipped = shuffledCards.every(obj => obj.flipped);
     
-    if(allFlipped && timeLeft !== 20){
+    if(allFlipped && timeLeft !== 25){
       setTimerRunning(false);
       swal({
         title: "¡YEIH!",
@@ -71,7 +71,7 @@ const App = () => {
   const handleNotificationClose = () => {
     const shuffledCardsList = shuffleArray([...cardList, ...cardList]);
     setshuffledCards(shuffledCardsList.map( (image, i) => ({ index: i, image: image, flipped: false}) ));
-    setTimeLeft(20);
+    setTimeLeft(25);
     setGameOver(false);
     setTimerRunning(true);
     setselectedCards(null);
@@ -86,15 +86,14 @@ const App = () => {
         if (prevTime <= 1) {
           setGameOver(true);
           setTimerRunning(false);
-          clearInterval(timer);
-          return 0; 
+          return 0;
         }
-        return prevTime - 1; 
+        return prevTime - 1;
       });
-    }, 1000); 
-
-    return () => clearInterval(timer); 
-  }, [timerRunning]);
+    }, 1000);
+  
+    return () => clearInterval(timer);
+  }, [timerRunning, timeLeft]);
 
   const shuffleArray = a => {
     for (let i = a.length - 1; i > 0; i--) {
