@@ -2,6 +2,8 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Board from './components/Board/Board';
 import swal from 'sweetalert'
+import Confetti from 'react-confetti';
+
 const cardList = [
   `${process.env.PUBLIC_URL}/cards/T1.svg`,
   `${process.env.PUBLIC_URL}/cards/T2.svg`,
@@ -18,11 +20,17 @@ const App = () => {
   const [timeLeft, setTimeLeft] = useState(25); 
   const [gameOver, setGameOver] = useState(false); 
   const [timerRunning, setTimerRunning] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined
+  });
 
   useEffect( () => {
     const shuffledCardsList = shuffleArray([...cardList, ...cardList]);
     setshuffledCards(shuffledCardsList.map( (image, i) => ({ index: i, image: image, flipped: false}) ));
     setTimerRunning(true);
+    setShowConfetti(false);
   }, []);
 
   useEffect( () => {
@@ -30,6 +38,7 @@ const App = () => {
     
     if(allFlipped && timeLeft !== 25){
       setTimerRunning(false);
+      setShowConfetti(true);
       swal({
         title: "¡YEIH!",
         text: "Has ganado felicitaciones",
@@ -74,11 +83,14 @@ const App = () => {
     setTimeLeft(25);
     setGameOver(false);
     setTimerRunning(true);
+    setShowConfetti(false);
     setselectedCards(null);
     setAnimating(false);
   };
 
   useEffect(() => {
+    window.onresize = () => handleWindowSize();
+
     if (!timerRunning) return;
 
     const timer = setInterval(() => {
@@ -126,8 +138,23 @@ const App = () => {
     }
   }
   
+  function handleWindowSize () {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  }
+
+
   return (
     <div className="app-container">
+      {showConfetti && 
+        <Confetti 
+          width={windowSize.width} 
+          height={windowSize.height}
+          style={{ zIndex: 10005 }}
+          colors={['#13BDF0', '#7DF065', '#F02100', '#efb810']}/>
+      }
       <div className="header-container">
         <div className="title-container mt-3">
           <img src={`${process.env.PUBLIC_URL}/otros/titulo.svg`} alt="Game Title" className="title-svg" />
